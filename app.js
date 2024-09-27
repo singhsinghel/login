@@ -5,7 +5,14 @@ import models from './mongo.js';
 const {Lead}=models
 import adminRoute from './admin.js'
 import sendEmailToAdmin from './email.js';
+import path from 'path';
 
+
+
+// Handle React routing, return all requests to React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join('index.html'));
+});
 
 const app = express();
 app.use(cors());
