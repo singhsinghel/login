@@ -58,7 +58,7 @@ const Signup = ({setChange}) => {
         };
         console.log(submitData);
         
-        fetch('http://localhost:5000/api/leads', {
+        fetch('https://login-pa5a.onrender.com/api/leads', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json', 

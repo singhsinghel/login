@@ -7,7 +7,7 @@ const AdminPanel = () => {
 
  
   useEffect(() => {
-    axios.get('http://localhost:5000/api/admin/leads')
+    axios.get('https://login-pa5a.onrender.com/api/admin/leads')
       .then((response) => {
         if (response.data.success) {
           setLeads(response.data.leads);
@@ -21,7 +21,7 @@ const AdminPanel = () => {
   }, []);
 
   const deleteLead = (id) => {
-    axios.delete(`http://localhost:5000/api/admin/leads/${id}`)
+    axios.delete(`https://login-pa5a.onrender.com/api/admin/leads/${id}`)
       .then((response) => {
         if (response.data.success) {
           setLeads(leads.filter(lead => lead._id !== id));

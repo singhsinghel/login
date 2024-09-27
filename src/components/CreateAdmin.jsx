@@ -11,7 +11,7 @@ const CreateAdmin = () => {
     const handleSubmit = async (e,) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/admin/register', { username, password, email });
+            const response = await axios.post('https://login-pa5a.onrender.com/api/admin/register', { username, password, email });
             
             if (response.status === 201) {
                 setSuccessMessage('Signup successful. You can now log in.');
