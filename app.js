@@ -62,7 +62,7 @@ app.post('/api/leads', async (req, res) => {
 app.use('/api/admin',adminRoute)
 
 app.get('*', (req, res) => {
-  const indexPath = path.join(__dirname,'build', 'index.html');
+  const indexPath = path.join(__dirname, 'index.html');
   res.sendFile(indexPath, (err) => {
     if (err) {
       console.error('Error serving index.html:', err);
