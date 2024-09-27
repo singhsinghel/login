@@ -9,12 +9,12 @@ import path from 'path';
 
 
 
+const app = express();
 // Handle React routing, return all requests to React app
 app.get('*', (req, res) => {
   res.sendFile(path.join('index.html'));
 });
 
-const app = express();
 app.use(cors());
 app.use(express.json());
 
