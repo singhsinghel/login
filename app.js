@@ -14,7 +14,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '/')));
+
 
 
 mongoose.connect('mongodb+srv://singhelboyankit:J5ZR9LKOzjFNePqR@bagtokabandb.nxmlo.mongodb.net/?retryWrites=true&w=majority&appName=BagtoKabandb');
@@ -56,7 +56,7 @@ app.post('/api/leads', async (req, res) => {
 app.use('/api/admin',adminRoute)
 
 app.get('*', (req, res) => {
-  res.render('index.html');
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(5000, () => {
