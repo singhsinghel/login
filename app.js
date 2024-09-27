@@ -61,9 +61,9 @@ app.post('/api/leads', async (req, res) => {
 
 app.use('/api/admin',adminRoute)
 
-app.get('*', (req, res) => {
-
-  res.sendFile('./index.html', (err) => {
+app.get('/', (req, res) => {
+  const filePath = path.join(__dirname, 'index.html'); // Create an absolute path
+  res.sendFile(filePath, (err) => {
     if (err) {
       console.error('Error serving index.html:', err);
       res.status(500).send('Internal Server Error');
