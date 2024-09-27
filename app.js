@@ -17,10 +17,10 @@ const __dirname = dirname(__filename);
 
 const app = express();
 // Handle React routing, return all requests to React app
-app.use('/src', express.static(path.join(__dirname, 'src')));
+
 app.use(cors());
 app.use(express.json());
-
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 mongoose.connect('mongodb+srv://singhelboyankit:J5ZR9LKOzjFNePqR@bagtokabandb.nxmlo.mongodb.net/?retryWrites=true&w=majority&appName=BagtoKabandb');
@@ -59,16 +59,11 @@ app.post('/api/leads', async (req, res) => {
   }
 });
 
-app.use('/api/admin',adminRoute);
+app.use('/api/admin',adminRoute)
 
-app.get('/src/*.jsx', (req, res, next) => {
-  res.set('Content-Type', 'application/javascript');
-  next();
-});
-
-app.get('/', (req, res) => {
-  const filePath = path.join(__dirname, 'index.html'); // Create an absolute path
-  res.sendFile(filePath, (err) => {
+app.get('*', (req, res) => {
+  const indexPath = path.join(__dirname, 'index.html');
+  res.sendFile(indexPath, (err) => {
     if (err) {
       console.error('Error serving index.html:', err);
       res.status(500).send('Internal Server Error');
