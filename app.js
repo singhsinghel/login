@@ -11,10 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/leads', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect('mongodb://127.0.0.1:27017/leads');
 
 
 app.post('/api/leads', async (req, res) => {
