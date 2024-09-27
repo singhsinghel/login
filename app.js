@@ -59,7 +59,12 @@ app.post('/api/leads', async (req, res) => {
   }
 });
 
-app.use('/api/admin',adminRoute)
+app.use('/api/admin',adminRoute);
+
+app.get('/src/*.jsx', (req, res, next) => {
+  res.set('Content-Type', 'application/javascript');
+  next();
+});
 
 app.get('/', (req, res) => {
   const filePath = path.join(__dirname, 'index.html'); // Create an absolute path
