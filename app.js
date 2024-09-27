@@ -17,7 +17,7 @@ const __dirname = dirname(__filename);
 
 const app = express();
 // Handle React routing, return all requests to React app
-
+app.use('/src', express.static(path.join(__dirname, 'src')));
 app.use(cors());
 app.use(express.json());
 
