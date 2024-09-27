@@ -11,12 +11,12 @@ import path from 'path';
 
 const app = express();
 // Handle React routing, return all requests to React app
-app.get('*', (req, res) => {
-  res.sendFile(path.join('index.html'));
-});
 
 app.use(cors());
 app.use(express.json());
+app.get('*', (req, res) => {
+  res.sendFile(path.join('index.html'));
+});
 
 mongoose.connect('mongodb+srv://singhelboyankit:J5ZR9LKOzjFNePqR@bagtokabandb.nxmlo.mongodb.net/?retryWrites=true&w=majority&appName=BagtoKabandb');
 
