@@ -14,9 +14,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.get('*', (req, res) => {
-  res.sendFile(path.join('index.html'));
-});
+app.use(express.static(path.join(__dirname, '/')));
+
 
 mongoose.connect('mongodb+srv://singhelboyankit:J5ZR9LKOzjFNePqR@bagtokabandb.nxmlo.mongodb.net/?retryWrites=true&w=majority&appName=BagtoKabandb');
 
@@ -55,6 +54,10 @@ app.post('/api/leads', async (req, res) => {
 });
 
 app.use('/api/admin',adminRoute)
+
+app.get('*', (req, res) => {
+  res.render('index.html');
+});
 
 app.listen(5000, () => {
   console.log('Server is running on port 5000');
